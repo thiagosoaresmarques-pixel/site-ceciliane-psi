@@ -215,22 +215,14 @@ button {
 
 .header__logo {
     display: flex;
-    flex-direction: column;
-    line-height: 1.2;
+    align-items: center;
+    text-decoration: none;
 }
 
-.header__logo-name {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
-}
-
-.header__logo-crp {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    letter-spacing: 0.5px;
+.header__logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
 }
 
 .header__nav-list {

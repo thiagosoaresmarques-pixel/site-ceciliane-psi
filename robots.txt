@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://psicecilianecardoso.com.br/sitemap.xml
