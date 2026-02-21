@@ -102,4 +102,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // ---- Google Ads Conversion Tracking (WhatsApp clicks) ----
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-16651599167/0wN6CIqI4vwbEL_6jIQ-',
+                    'value': 1.0,
+                    'currency': 'BRL'
+                });
+            }
+        });
+    });
+
 });
