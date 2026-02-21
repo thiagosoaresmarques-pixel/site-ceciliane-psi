@@ -357,6 +357,11 @@ button {
     flex-wrap: wrap;
 }
 
+.hero__actions .btn {
+    min-width: 240px;
+    text-align: center;
+}
+
 .hero__image-wrapper {
     position: relative;
     display: flex;
