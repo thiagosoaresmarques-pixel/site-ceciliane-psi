@@ -217,12 +217,32 @@ button {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: var(--space-sm);
 }
 
 .header__logo-img {
     height: 48px;
     width: auto;
     object-fit: contain;
+}
+
+.header__logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.header__logo-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.header__logo-crp {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
 }
 
 .header__nav-list {
@@ -1224,6 +1244,24 @@ button {
     /* Roda da Vida */
     .roda-da-vida__content {
         grid-template-columns: 1fr;
+    }
+
+    .ferramenta-block {
+        overflow: hidden;
+        padding: var(--space-lg);
+    }
+
+    .roda-da-vida__sliders {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .roda-slider input[type="range"] {
+        max-width: 100%;
+    }
+
+    .roda-da-vida__chart-wrapper {
+        max-width: 280px;
     }
 
     /* Footer */
