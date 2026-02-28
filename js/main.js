@@ -170,5 +170,90 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     }
+    // ---- Mini-Quiz Engine (Main Page) ----
+    const quizOverlay = document.getElementById('quiz-overlay');
+    if (quizOverlay) {
+        const steps = quizOverlay.querySelectorAll('.quiz-step');
+        const progressBar = quizOverlay.querySelector('.quiz-modal__progress-bar');
+        const closeBtn = quizOverlay.querySelector('.quiz-modal__close');
+        const totalSteps = steps.length - 1;
+        let currentStep = 0;
+        const answers = [];
+
+        // Open quiz
+        document.querySelectorAll('[data-quiz-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentStep = 0;
+                answers.length = 0;
+                showStep(0);
+                quizOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeQuiz() {
+            quizOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeQuiz);
+        quizOverlay.addEventListener('click', (e) => {
+            if (e.target === quizOverlay) closeQuiz();
+        });
+
+        function showStep(index) {
+            steps.forEach(s => s.classList.remove('active'));
+            steps[index].classList.add('active');
+            progressBar.style.width = Math.min((index / totalSteps) * 100, 100) + '%';
+        }
+
+        quizOverlay.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', () => {
+                answers.push(option.dataset.answer);
+                currentStep++;
+                if (currentStep < totalSteps) {
+                    showStep(currentStep);
+                } else {
+                    progressBar.style.width = '100%';
+                    showResult();
+                }
+            });
+        });
+
+        function showResult() {
+            const resultStep = quizOverlay.querySelector('[data-step="result"]');
+            const page = quizOverlay.dataset.page || 'principal';
+
+            const questionEls = quizOverlay.querySelectorAll('.quiz-step__question');
+            let resumo = '';
+            answers.forEach((ans, i) => {
+                if (questionEls[i]) {
+                    resumo += `• ${questionEls[i].textContent.trim()}: ${ans}\n`;
+                }
+            });
+
+            const mensagem = `Olá, vim pelo site e respondi o questionário:\n\n${resumo}\nGostaria de agendar uma conversa.`;
+            const waUrl = `https://wa.me/558596862227?text=${encodeURIComponent(mensagem)}`;
+
+            const ctaBtn = resultStep.querySelector('.quiz-result__cta');
+            if (ctaBtn) ctaBtn.href = waUrl;
+
+            steps.forEach(s => s.classList.remove('active'));
+            resultStep.classList.add('active');
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-16651599167/0wN6CIqI4vwbEL_6jIQ-',
+                    'event_category': 'quiz',
+                    'event_label': 'quiz_completed'
+                });
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && quizOverlay.classList.contains('active')) closeQuiz();
+        });
+    }
 
 });

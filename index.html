@@ -202,13 +202,14 @@
                 <p class="hero__subtitle">Psicóloga Clínica e Mentora — atendimento presencial em Fortaleza e online
                     para todo Brasil e fora do País. Um espaço seguro para o seu autoconhecimento e transformação.</p>
                 <div class="hero__actions">
+                    <a href="#" class="btn btn--primary btn--large" id="main-quiz-trigger" data-quiz-trigger>
+                        <i class="ph ph-clipboard-text"></i>
+                        Entender meu momento
+                    </a>
                     <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o."
-                        class="btn btn--primary btn--large" target="_blank" rel="noopener">
+                        class="btn btn--outline btn--large" target="_blank" rel="noopener">
                         <i class="ph ph-whatsapp-logo"></i>
                         Agendar Sessão
-                    </a>
-                    <a href="#sobre" class="btn btn--outline btn--large">
-                        Conheça meu trabalho
                     </a>
                 </div>
             </div>
@@ -315,10 +316,18 @@
                         <li><i class="ph ph-check-circle"></i> Autoconhecimento profundo</li>
                         <li><i class="ph ph-check-circle"></i> Atendimento online e presencial</li>
                     </ul>
-                    <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Psicoterapia%20Cl%C3%ADnica."
-                        class="btn btn--primary" target="_blank" rel="noopener">
-                        <i class="ph ph-whatsapp-logo"></i> Saber mais
-                    </a>
+                    <div class="servico-card__actions">
+                        <a href="ansiedade.html" class="btn btn--outline">
+                            <i class="ph ph-arrow-right"></i> Ansiedade
+                        </a>
+                        <a href="autoestima.html" class="btn btn--outline">
+                            <i class="ph ph-arrow-right"></i> Autoestima
+                        </a>
+                        <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Psicoterapia%20Cl%C3%ADnica."
+                            class="btn btn--primary" target="_blank" rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i> Agendar
+                        </a>
+                    </div>
                 </div>
                 <!-- Card: Mentoria -->
                 <div class="servico-card">
@@ -337,10 +346,15 @@
                         <li><i class="ph ph-check-circle"></i> Organização da prática clínica</li>
                         <li><i class="ph ph-check-circle"></i> Desenvolvimento prático e estratégico</li>
                     </ul>
-                    <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Mentoria."
-                        class="btn btn--primary" target="_blank" rel="noopener">
-                        <i class="ph ph-whatsapp-logo"></i> Saber mais
-                    </a>
+                    <div class="servico-card__actions">
+                        <a href="mentoria.html" class="btn btn--outline">
+                            <i class="ph ph-arrow-right"></i> Saiba mais
+                        </a>
+                        <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Mentoria."
+                            class="btn btn--primary" target="_blank" rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i> Agendar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -671,6 +685,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- ========== MINI-QUIZ MODAL ========== -->
+    <div class="quiz-overlay" id="quiz-overlay" data-page="principal" data-interesse="Psicoterapia">
+        <div class="quiz-modal">
+            <button class="quiz-modal__close" aria-label="Fechar"><i class="ph ph-x"></i></button>
+            <div class="quiz-modal__progress">
+                <div class="quiz-modal__progress-bar"></div>
+            </div>
+            <div class="quiz-modal__body">
+                <div class="quiz-step active" data-step="0">
+                    <p class="quiz-step__count">Pergunta 1 de 4</p>
+                    <h3 class="quiz-step__question">Como você descreveria seu momento emocional?</h3>
+                    <div class="quiz-step__options">
+                        <button class="quiz-option" data-answer="Ansiedade e preocupação constante"><i
+                                class="ph ph-lightning"></i> Ansiedade e preocupação constante</button>
+                        <button class="quiz-option" data-answer="Insegurança e baixa autoestima"><i
+                                class="ph ph-heart-break"></i> Insegurança e baixa autoestima</button>
+                        <button class="quiz-option" data-answer="Sobrecarga e cansaço mental"><i
+                                class="ph ph-cloud-warning"></i> Sobrecarga e cansaço mental</button>
+                        <button class="quiz-option" data-answer="Não sei definir, só sei que quero mudar"><i
+                                class="ph ph-question"></i> Não sei definir, só sei que quero mudar</button>
+                    </div>
+                </div>
+                <div class="quiz-step" data-step="1">
+                    <p class="quiz-step__count">Pergunta 2 de 4</p>
+                    <h3 class="quiz-step__question">Isso afeta seus relacionamentos ou trabalho?</h3>
+                    <div class="quiz-step__options">
+                        <button class="quiz-option" data-answer="Sim, bastante"><i class="ph ph-users"></i> Sim,
+                            bastante</button>
+                        <button class="quiz-option" data-answer="Um pouco"><i class="ph ph-users"></i> Um pouco</button>
+                        <button class="quiz-option" data-answer="Nem sempre"><i class="ph ph-users"></i> Nem
+                            sempre</button>
+                    </div>
+                </div>
+                <div class="quiz-step" data-step="2">
+                    <p class="quiz-step__count">Pergunta 3 de 4</p>
+                    <h3 class="quiz-step__question">Já fez terapia antes?</h3>
+                    <div class="quiz-step__options">
+                        <button class="quiz-option" data-answer="Nunca fiz"><i class="ph ph-user"></i> Nunca
+                            fiz</button>
+                        <button class="quiz-option" data-answer="Sim, mas parei"><i class="ph ph-user"></i> Sim, mas
+                            parei</button>
+                        <button class="quiz-option" data-answer="Sim, faço atualmente"><i class="ph ph-user"></i> Sim,
+                            faço atualmente</button>
+                    </div>
+                </div>
+                <div class="quiz-step" data-step="3">
+                    <p class="quiz-step__count">Pergunta 4 de 4</p>
+                    <h3 class="quiz-step__question">O que você mais busca agora?</h3>
+                    <div class="quiz-step__options">
+                        <button class="quiz-option" data-answer="Aliviar a ansiedade"><i class="ph ph-heart"></i>
+                            Aliviar a ansiedade</button>
+                        <button class="quiz-option" data-answer="Resgatar minha confiança"><i class="ph ph-heart"></i>
+                            Resgatar minha confiança</button>
+                        <button class="quiz-option" data-answer="Entender meus padrões"><i class="ph ph-heart"></i>
+                            Entender meus padrões</button>
+                        <button class="quiz-option" data-answer="Ter autoconhecimento"><i class="ph ph-heart"></i> Ter
+                            autoconhecimento</button>
+                    </div>
+                </div>
+                <div class="quiz-step" data-step="result">
+                    <div class="quiz-result">
+                        <div class="quiz-result__icon"><i class="ph ph-check-circle"></i></div>
+                        <h3 class="quiz-result__title">A terapia pode ajudar você nesse momento.</h3>
+                        <p class="quiz-result__text">
+                            Com base nas suas respostas, o acompanhamento psicológico pode fazer uma diferença real.
+                            Vamos conversar?
+                        </p>
+                        <a href="#" class="btn btn--primary btn--large quiz-result__cta" target="_blank" rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i>
+                            Conversar pelo WhatsApp
+                        </a>
+                        <p class="quiz-result__note">Suas respostas serão enviadas de forma resumida para agilizar o
+                            atendimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
