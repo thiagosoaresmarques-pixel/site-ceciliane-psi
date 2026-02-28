@@ -611,6 +611,96 @@ button {
     font-size: 1rem;
 }
 
+/* ============================================================
+   DEPOIMENTOS
+   ============================================================ */
+.depoimentos {
+    padding: var(--space-4xl) 0;
+    background: var(--bg-secondary);
+}
+
+.depoimentos__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.depoimentos__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.depoimento-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.depoimento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.depoimento-card__quote {
+    font-size: 1.8rem;
+    color: var(--sage-light);
+    margin-bottom: var(--space-sm);
+    line-height: 1;
+}
+
+.depoimento-card__text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-style: italic;
+    flex-grow: 1;
+    margin-bottom: var(--space-lg);
+}
+
+.depoimento-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--bg-secondary);
+}
+
+.depoimento-card__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--sage-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.depoimento-card__avatar i {
+    font-size: 1.2rem;
+    color: var(--sage);
+}
+
+.depoimento-card__name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.depoimento-card__detail {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   SERVIÇOS — servico-card .btn
+   ============================================================ */
 .servico-card .btn {
     align-self: flex-start;
 }
@@ -1238,6 +1328,11 @@ button {
 
     /* Serviços */
     .servicos__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Depoimentos */
+    .depoimentos__grid {
         grid-template-columns: 1fr;
     }
 

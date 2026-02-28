@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Scroll Reveal ----
     const revealElements = document.querySelectorAll(
-        '.servico-card, .ferramenta-block, .faq-item, .sobre__content, .consultorio__inner'
+        '.servico-card, .depoimento-card, .ferramenta-block, .faq-item, .sobre__content, .consultorio__inner'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
