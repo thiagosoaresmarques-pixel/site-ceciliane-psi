@@ -136,9 +136,9 @@
                 <li><i class="ph ph-calendar-check"></i> Agendamento rápido</li>
             </ul>
             <div class="lp-hero__actions">
-                <a href="#formulario" class="btn btn--primary btn--large" id="cta-hero-form">
-                    <i class="ph ph-chat-text"></i>
-                    Quero agendar minha conversa
+                <a href="#" class="btn btn--primary btn--large" data-quiz-trigger>
+                    <i class="ph ph-clipboard-text"></i>
+                    Entender minha ansiedade
                 </a>
                 <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20ansiedade%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o."
                     class="btn btn--secondary btn--large" target="_blank" rel="noopener" id="cta-hero-whatsapp">
@@ -523,6 +523,107 @@
         class="lp-whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" id="cta-float-whatsapp">
         <i class="ph ph-whatsapp-logo"></i>
     </a>
+
+    <!-- ========== MINI-QUIZ MODAL ========== -->
+    <div class="lp-quiz-overlay" id="quiz-overlay" data-page="ansiedade" data-interesse="Ansiedade">
+        <div class="lp-quiz">
+            <button class="lp-quiz__close" aria-label="Fechar"><i class="ph ph-x"></i></button>
+            <div class="lp-quiz__progress">
+                <div class="lp-quiz__progress-bar"></div>
+            </div>
+            <div class="lp-quiz__body">
+                <!-- Step 1 -->
+                <div class="lp-quiz__step active" data-step="0">
+                    <p class="lp-quiz__step-count">Pergunta 1 de 5</p>
+                    <h3 class="lp-quiz__question">Há quanto tempo você se sente assim?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Menos de 1 mês"><i class="ph ph-calendar"></i>
+                            Menos de 1 mês</button>
+                        <button class="lp-quiz__option" data-answer="1 a 6 meses"><i class="ph ph-calendar"></i> 1 a 6
+                            meses</button>
+                        <button class="lp-quiz__option" data-answer="Mais de 6 meses"><i class="ph ph-calendar"></i>
+                            Mais de 6 meses</button>
+                        <button class="lp-quiz__option" data-answer="Há anos"><i class="ph ph-calendar"></i> Há
+                            anos</button>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="lp-quiz__step" data-step="1">
+                    <p class="lp-quiz__step-count">Pergunta 2 de 5</p>
+                    <h3 class="lp-quiz__question">Seu sono está sendo afetado?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Sim, tenho insônia"><i class="ph ph-moon"></i> Sim,
+                            tenho insônia</button>
+                        <button class="lp-quiz__option" data-answer="Durmo, mas acordo cansado(a)"><i
+                                class="ph ph-moon"></i> Durmo, mas acordo cansado(a)</button>
+                        <button class="lp-quiz__option" data-answer="Às vezes"><i class="ph ph-moon"></i> Às
+                            vezes</button>
+                        <button class="lp-quiz__option" data-answer="Não, meu sono está ok"><i class="ph ph-moon"></i>
+                            Não, meu sono está ok</button>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="lp-quiz__step" data-step="2">
+                    <p class="lp-quiz__step-count">Pergunta 3 de 5</p>
+                    <h3 class="lp-quiz__question">A ansiedade interfere no trabalho ou estudos?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Sim, muito"><i class="ph ph-briefcase"></i> Sim,
+                            muito</button>
+                        <button class="lp-quiz__option" data-answer="Um pouco"><i class="ph ph-briefcase"></i> Um
+                            pouco</button>
+                        <button class="lp-quiz__option" data-answer="Não diretamente"><i class="ph ph-briefcase"></i>
+                            Não diretamente</button>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="lp-quiz__step" data-step="3">
+                    <p class="lp-quiz__step-count">Pergunta 4 de 5</p>
+                    <h3 class="lp-quiz__question">Você já fez terapia antes?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Nunca fiz"><i class="ph ph-user"></i> Nunca
+                            fiz</button>
+                        <button class="lp-quiz__option" data-answer="Sim, mas parei"><i class="ph ph-user"></i> Sim, mas
+                            parei</button>
+                        <button class="lp-quiz__option" data-answer="Sim, faço atualmente"><i class="ph ph-user"></i>
+                            Sim, faço atualmente</button>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="lp-quiz__step" data-step="4">
+                    <p class="lp-quiz__step-count">Pergunta 5 de 5</p>
+                    <h3 class="lp-quiz__question">O que você mais espera da terapia?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Controlar a ansiedade"><i class="ph ph-heart"></i>
+                            Controlar a ansiedade</button>
+                        <button class="lp-quiz__option" data-answer="Dormir melhor"><i class="ph ph-heart"></i> Dormir
+                            melhor</button>
+                        <button class="lp-quiz__option" data-answer="Me sentir mais seguro(a)"><i
+                                class="ph ph-heart"></i> Me sentir mais seguro(a)</button>
+                        <button class="lp-quiz__option" data-answer="Entender o que estou sentindo"><i
+                                class="ph ph-heart"></i> Entender o que estou sentindo</button>
+                    </div>
+                </div>
+                <!-- Result -->
+                <div class="lp-quiz__step" data-step="result">
+                    <div class="lp-quiz__result">
+                        <div class="lp-quiz__result-icon"><i class="ph ph-check-circle"></i></div>
+                        <h3 class="lp-quiz__result-title">A terapia pode ajudar muito você.</h3>
+                        <p class="lp-quiz__result-text">
+                            Com base nas suas respostas, o acompanhamento psicológico pode fazer uma diferença real na
+                            sua qualidade de vida. Vamos conversar?
+                        </p>
+                        <a href="#" class="btn btn--primary btn--large lp-quiz__result-cta" target="_blank"
+                            rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i>
+                            Conversar pelo WhatsApp
+                        </a>
+                        <p class="lp-quiz__result-note">Suas respostas serão enviadas de forma resumida para agilizar o
+                            atendimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Landing JS -->
     <script src="js/landing.js"></script>

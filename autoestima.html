@@ -118,9 +118,9 @@
                 <li><i class="ph ph-calendar-check"></i> Agendamento rápido</li>
             </ul>
             <div class="lp-hero__actions">
-                <a href="#formulario" class="btn btn--primary btn--large">
-                    <i class="ph ph-chat-text"></i>
-                    Quero mudar isso
+                <a href="#" class="btn btn--primary btn--large" data-quiz-trigger>
+                    <i class="ph ph-clipboard-text"></i>
+                    Entender minha autoestima
                 </a>
                 <a href="https://wa.me/558596862227?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20autoestima%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o."
                     class="btn btn--secondary btn--large" target="_blank" rel="noopener">
@@ -502,6 +502,96 @@
         class="lp-whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
         <i class="ph ph-whatsapp-logo"></i>
     </a>
+
+    <!-- ========== MINI-QUIZ MODAL ========== -->
+    <div class="lp-quiz-overlay" id="quiz-overlay" data-page="autoestima" data-interesse="Autoestima">
+        <div class="lp-quiz">
+            <button class="lp-quiz__close" aria-label="Fechar"><i class="ph ph-x"></i></button>
+            <div class="lp-quiz__progress">
+                <div class="lp-quiz__progress-bar"></div>
+            </div>
+            <div class="lp-quiz__body">
+                <div class="lp-quiz__step active" data-step="0">
+                    <p class="lp-quiz__step-count">Pergunta 1 de 5</p>
+                    <h3 class="lp-quiz__question">Você se considera uma pessoa insegura?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Sim, na maioria das situações"><i
+                                class="ph ph-user"></i> Sim, na maioria das situações</button>
+                        <button class="lp-quiz__option" data-answer="Em algumas situações"><i class="ph ph-user"></i> Em
+                            algumas situações</button>
+                        <button class="lp-quiz__option" data-answer="Raramente"><i class="ph ph-user"></i>
+                            Raramente</button>
+                    </div>
+                </div>
+                <div class="lp-quiz__step" data-step="1">
+                    <p class="lp-quiz__step-count">Pergunta 2 de 5</p>
+                    <h3 class="lp-quiz__question">Você costuma se comparar com outras pessoas?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Sim, o tempo todo"><i class="ph ph-users"></i> Sim,
+                            o tempo todo</button>
+                        <button class="lp-quiz__option" data-answer="Às vezes"><i class="ph ph-users"></i> Às
+                            vezes</button>
+                        <button class="lp-quiz__option" data-answer="Quase nunca"><i class="ph ph-users"></i> Quase
+                            nunca</button>
+                    </div>
+                </div>
+                <div class="lp-quiz__step" data-step="2">
+                    <p class="lp-quiz__step-count">Pergunta 3 de 5</p>
+                    <h3 class="lp-quiz__question">Você tem dificuldade em impor limites?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Sim, muito"><i class="ph ph-hand-palm"></i> Sim,
+                            muito</button>
+                        <button class="lp-quiz__option" data-answer="Em algumas relações"><i
+                                class="ph ph-hand-palm"></i> Em algumas relações</button>
+                        <button class="lp-quiz__option" data-answer="Não, consigo me posicionar"><i
+                                class="ph ph-hand-palm"></i> Não, consigo me posicionar</button>
+                    </div>
+                </div>
+                <div class="lp-quiz__step" data-step="3">
+                    <p class="lp-quiz__step-count">Pergunta 4 de 5</p>
+                    <h3 class="lp-quiz__question">Você já fez terapia antes?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Nunca fiz"><i class="ph ph-user"></i> Nunca
+                            fiz</button>
+                        <button class="lp-quiz__option" data-answer="Sim, mas parei"><i class="ph ph-user"></i> Sim, mas
+                            parei</button>
+                        <button class="lp-quiz__option" data-answer="Sim, faço atualmente"><i class="ph ph-user"></i>
+                            Sim, faço atualmente</button>
+                    </div>
+                </div>
+                <div class="lp-quiz__step" data-step="4">
+                    <p class="lp-quiz__step-count">Pergunta 5 de 5</p>
+                    <h3 class="lp-quiz__question">O que você mais gostaria de mudar?</h3>
+                    <div class="lp-quiz__options">
+                        <button class="lp-quiz__option" data-answer="Parar de me cobrar tanto"><i
+                                class="ph ph-heart"></i> Parar de me cobrar tanto</button>
+                        <button class="lp-quiz__option" data-answer="Ter relações mais saudáveis"><i
+                                class="ph ph-heart"></i> Ter relações mais saudáveis</button>
+                        <button class="lp-quiz__option" data-answer="Me sentir mais confiante"><i
+                                class="ph ph-heart"></i> Me sentir mais confiante</button>
+                        <button class="lp-quiz__option" data-answer="Aprender a colocar limites"><i
+                                class="ph ph-heart"></i> Aprender a colocar limites</button>
+                    </div>
+                </div>
+                <div class="lp-quiz__step" data-step="result">
+                    <div class="lp-quiz__result">
+                        <div class="lp-quiz__result-icon"><i class="ph ph-butterfly"></i></div>
+                        <h3 class="lp-quiz__result-title">Você merece se enxergar de um jeito diferente.</h3>
+                        <p class="lp-quiz__result-text">
+                            Com base nas suas respostas, o acompanhamento pode ajudar a fortalecer sua confiança e
+                            transformar seus padrões. Vamos conversar?
+                        </p>
+                        <a href="#" class="btn btn--primary btn--large lp-quiz__result-cta" target="_blank"
+                            rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i>
+                            Conversar pelo WhatsApp
+                        </a>
+                        <p class="lp-quiz__result-note">Suas respostas serão enviadas para agilizar o atendimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/landing.js"></script>
 </body>

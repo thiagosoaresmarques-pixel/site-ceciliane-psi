@@ -1043,3 +1043,223 @@ button {
         padding: var(--space-lg);
     }
 }
+
+/* ============================================================
+   MINI-QUIZ MODAL
+   ============================================================ */
+.lp-quiz-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.lp-quiz-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lp-quiz {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    max-width: 520px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.35s ease;
+}
+
+.lp-quiz-overlay.active .lp-quiz {
+    transform: translateY(0) scale(1);
+}
+
+/* Close button */
+.lp-quiz__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 5;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.lp-quiz__close:hover {
+    background: var(--text-muted);
+    color: var(--white);
+}
+
+/* Progress */
+.lp-quiz__progress {
+    height: 4px;
+    background: var(--bg-secondary);
+}
+
+.lp-quiz__progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sage), var(--sage-dark));
+    border-radius: 0 4px 4px 0;
+    transition: width 0.4s ease;
+    width: 0;
+}
+
+/* Body */
+.lp-quiz__body {
+    padding: var(--space-2xl);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Step counter */
+.lp-quiz__step-count {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-md);
+}
+
+/* Question */
+.lp-quiz__question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: var(--space-xl);
+}
+
+/* Options */
+.lp-quiz__options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.lp-quiz__option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 16px 20px;
+    border: 2px solid var(--bg-secondary);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    width: 100%;
+}
+
+.lp-quiz__option:hover {
+    border-color: var(--sage-light);
+    background: var(--sage-bg);
+    transform: translateX(4px);
+}
+
+.lp-quiz__option i {
+    font-size: 1.2rem;
+    color: var(--sage);
+    flex-shrink: 0;
+}
+
+/* Step transition */
+.lp-quiz__step {
+    display: none;
+    animation: quizSlideIn 0.35s ease;
+}
+
+.lp-quiz__step.active {
+    display: block;
+}
+
+@keyframes quizSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Result screen */
+.lp-quiz__result {
+    text-align: center;
+}
+
+.lp-quiz__result-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--sage-bg), rgba(210, 132, 126, 0.18));
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+    font-size: 2rem;
+    color: var(--sage);
+}
+
+.lp-quiz__result-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.lp-quiz__result-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+}
+
+.lp-quiz__result-cta {
+    width: 100%;
+}
+
+.lp-quiz__result-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+}
+
+/* Mobile quiz */
+@media (max-width: 480px) {
+    .lp-quiz__body {
+        padding: var(--space-lg);
+        min-height: 280px;
+    }
+
+    .lp-quiz__question {
+        font-size: 1.05rem;
+    }
+
+    .lp-quiz__option {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+}

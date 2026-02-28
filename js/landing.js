@@ -134,4 +134,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Mini-Quiz Engine ----
+    const quizOverlay = document.getElementById('quiz-overlay');
+    if (quizOverlay) {
+        const quiz = quizOverlay.querySelector('.lp-quiz');
+        const steps = quizOverlay.querySelectorAll('.lp-quiz__step');
+        const progressBar = quizOverlay.querySelector('.lp-quiz__progress-bar');
+        const closeBtn = quizOverlay.querySelector('.lp-quiz__close');
+        const totalSteps = steps.length - 1; // exclude result step
+        let currentStep = 0;
+        const answers = [];
+
+        // Open quiz
+        document.querySelectorAll('[data-quiz-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentStep = 0;
+                answers.length = 0;
+                showStep(0);
+                quizOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close quiz
+        function closeQuiz() {
+            quizOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeQuiz);
+        quizOverlay.addEventListener('click', (e) => {
+            if (e.target === quizOverlay) closeQuiz();
+        });
+
+        // Show step
+        function showStep(index) {
+            steps.forEach(s => s.classList.remove('active'));
+            steps[index].classList.add('active');
+            const progress = ((index) / totalSteps) * 100;
+            progressBar.style.width = Math.min(progress, 100) + '%';
+        }
+
+        // Option click → store answer → next step
+        quizOverlay.querySelectorAll('.lp-quiz__option').forEach(option => {
+            option.addEventListener('click', () => {
+                answers.push(option.dataset.answer);
+                currentStep++;
+
+                if (currentStep < totalSteps) {
+                    showStep(currentStep);
+                } else {
+                    // Show result
+                    progressBar.style.width = '100%';
+                    showResult();
+                }
+            });
+        });
+
+        function showResult() {
+            const resultStep = quizOverlay.querySelector('[data-step="result"]');
+            const interesse = quizOverlay.dataset.interesse || 'Psicoterapia';
+            const page = quizOverlay.dataset.page || '';
+
+            // Build WhatsApp message with answers
+            const questionEls = quizOverlay.querySelectorAll('.lp-quiz__question');
+            let resumo = '';
+            answers.forEach((ans, i) => {
+                if (questionEls[i]) {
+                    resumo += `• ${questionEls[i].textContent.trim()}: ${ans}\n`;
+                }
+            });
+
+            const mensagem = `Olá, vim pela página de ${page} e respondi o questionário:\n\n${resumo}\nGostaria de agendar uma conversa.`;
+            const waUrl = `https://wa.me/558596862227?text=${encodeURIComponent(mensagem)}`;
+
+            // Set CTA href
+            const ctaBtn = resultStep.querySelector('.lp-quiz__result-cta');
+            if (ctaBtn) ctaBtn.href = waUrl;
+
+            steps.forEach(s => s.classList.remove('active'));
+            resultStep.classList.add('active');
+
+            trackConversion('quiz_completed');
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && quizOverlay.classList.contains('active')) {
+                closeQuiz();
+            }
+        });
+    }
+
 });
