@@ -114,5 +114,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // ---- Capture Form: Phone Mask ----
+    const capWhatsapp = document.getElementById('cap-whatsapp');
+    if (capWhatsapp) {
+        capWhatsapp.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length > 7) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+            } else if (value.length > 2) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            } else if (value.length > 0) {
+                value = `(${value}`;
+            }
+            e.target.value = value;
+        });
+    }
+
+    // ---- Capture Form: Submit → WhatsApp ----
+    const capForm = document.getElementById('main-capture-form');
+    if (capForm) {
+        capForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('cap-nome').value.trim();
+            const whatsapp = document.getElementById('cap-whatsapp').value.trim();
+            const interesse = document.getElementById('cap-interesse').value;
+            if (!nome || !whatsapp) return;
+
+            const mensagem = `Olá, meu nome é ${nome}. ` +
+                `Tenho interesse em ${interesse} e gostaria de agendar uma sessão. ` +
+                `Meu WhatsApp: ${whatsapp}`;
+            const waUrl = `https://wa.me/558596862227?text=${encodeURIComponent(mensagem)}`;
+
+            // Track conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-16651599167/0wN6CIqI4vwbEL_6jIQ-',
+                    'value': 1.0,
+                    'currency': 'BRL'
+                });
+            }
+
+            window.open(waUrl, '_blank');
+
+            // Visual feedback
+            const btn = document.getElementById('main-form-submit');
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="ph ph-check-circle"></i> Enviado!';
+            btn.style.background = '#25D366';
+            btn.style.borderColor = '#25D366';
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }, 3000);
+        });
+    }
 
 });
